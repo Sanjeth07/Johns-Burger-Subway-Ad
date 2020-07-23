@@ -1,0 +1,43 @@
+ -- How recent is this data?
+ SELECT DISTINCT order_date
+ FROM orders
+ ORDER BY order_date DESC;
+
+ -- Select only 20 special instructions of customer orders
+ 
+ SELECT special_instructions
+ FROM orders
+ WHERE special_instructions IS NOT NULL
+ LIMIT 20;
+
+ -- Sort special instructions of customer orders in alphabethical order (A-Z)
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions IS NOT NULL
+ORDER BY special_instructions;
+
+-- search for special instructions that have the word 'sauce'
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%sauce%';
+
+ -- search for special instructions that have the word 'door'
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%door%';
+
+ -- search for special instructions that have the word 'box'
+
+SELECT special_instructions
+FROM orders
+WHERE special_instructions LIKE '%box%';
+ 
+ -- Rename id as '#' and special_instructions as 'Notes'
+
+SELECT id AS '#', 
+  special_instructions AS 'Notes'
+FROM orders
+WHERE special_instructions LIKE '%box%';
